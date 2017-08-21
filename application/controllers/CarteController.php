@@ -63,10 +63,8 @@ class CarteController extends Zend_Controller_Action
             
             //rassembler la catégorie et la valeur en un tableau de deux dimensions
             $tricards[$categoryIndex][$valueIndex] = ["category" => $card->category, "value" => $card->value];
-
-            
-
         }
+
         //trier le tableau 
         $this->RecursiveSort($tricards);
 
@@ -86,6 +84,7 @@ class CarteController extends Zend_Controller_Action
 
     //Tri récursif des donnnées selon l'index du tableau multi-dimensions
     private function RecursiveSort(&$array){
+        
         if(is_array($array)){
             //tableau une seule dimension
             if(count($array) == count($array , COUNT_RECURSIVE)){
