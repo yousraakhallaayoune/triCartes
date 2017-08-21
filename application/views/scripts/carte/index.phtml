@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Tri de cartes</title>
+		<?php echo $this->headLink()->appendStylesheet( 'css/style.css')?>
+	</head>
+
+	<body>
+		<div class="header"><span class="titre">Jeu de cartes</span></div>
+		<div class="container">
+			<?php if(isset($this->cards)): ?>
+			
+			
+			<div class="row">
+				<div >
+					<div class="table">
+						<div class="title">Cartes non triées</div>
+						<table class="content">
+							<tr>
+								<th>Catégorie</th>
+								<th>Valeur</th>
+							</tr>
+					<?php foreach ($this->cards as $card):  ?>
+						<tr><td><?php echo $card->category; ?></td>
+						<td><?php echo $card->value; ?></td></tr>
+						
+					<?php endforeach; ?>
+						</table>
+					</div>
+				</div>
+			</div>
+			<?php endif; ?>
+
+			<?php if(isset($this->sortCards)):  ?>
+				
+				<div class="row">
+					<div >
+						<div class="table">
+						<div class="title">Cartes triées</div>
+							<table class="content">
+								<tr>
+									<th>Catégorie</td>
+									<th>Valeur</td>
+								</tr>
+						<?php for ($i=0; $i< count($this->sortCards); $i++): ?>
+								<tr><td><?php echo $this->sortCards[$i]["category"]; ?></td>
+									<td><?php echo $this->sortCards[$i]["value"]; ?></td>
+								</tr>
+						<?php endfor; ?>
+							</table>
+						</div>
+					</div>
+				</div>
+			<?php endif; ?>
+		</div>
+	</body>
+</html>
